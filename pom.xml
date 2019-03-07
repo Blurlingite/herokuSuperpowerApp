@@ -126,6 +126,37 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            
+            
+            
+            
+            <!--Web app runner plug in for maven
+            
+The version of Webapp Runner is pinned to the version of the underlying Tomcat server. 
+Thus, version 8.5.37.1 of Webapp Runner uses version 8.5.37 of Tomcat.
+            -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals><goal>copy</goal></goals>
+                    <configuration>
+                        <artifactItems>
+                            <artifactItem>
+                                <groupId>com.github.jsimone</groupId>
+                                <artifactId>webapp-runner</artifactId>
+                                <version>9.0.16.0</version>
+                                <destFileName>webapp-runner.jar</destFileName>
+                            </artifactItem>
+                        </artifactItems>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+            
+            
         </plugins>
     </build>
 </project>
